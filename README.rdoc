@@ -8,9 +8,9 @@ you may need to recompile it with your Flex Builder SDKS, or just download it fr
 project download file list.
 
 Try out steps:
-  1. I tested it with Flex Builder SDKS 3.2 on Mac currently, for other SDKS version / OS, you should set FB_SDK_PATH env variable to point to Flex SDK path (e.g.: FB_SDK_PATH=PATH_TO_AIR_SDK/sdks/3.2.0).
-  2. cucumber & funfx
-  3. using safariwatir, for I can't find out simple solution for FireWatir to solve Firefox one profile per instance problem on CI build.
+  1. It is tested with Flex Builder SDKS 3.2 on Mac currently, for other SDKS version / OS, you should set FB_SDK_PATH env variable to point to Flex SDK path (e.g.: FB_SDK_PATH=PATH_TO_AIR_SDK/sdks/3.2.0). See FBSdks class in the Rakefile
+  2. install cucumber & funfx gems
+  3. install safariwatir gem. It works with FireWatir too, you need change some code in 'features/support/env.rb', using safariwatir is because I can't find out simple solution for FireWatir to solve Firefox one profile per instance problem on CI build.
   4. Run 'rake' should get application compiled and run features
   5. You may get errors at first time running the features, fix it by adding the 'dist/todolist.swf' need be added into trust file list. see 'Problems to fix' below.
 
