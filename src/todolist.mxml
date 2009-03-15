@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" initialize="onLoad()">
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+
+			[Bindable]
+			public var todoList:ArrayCollection = new ArrayCollection([{'todo list': FREEDOM}]);
+			public var FREEDOM:String = '-- You are free --'
+
+			public function addTodo() : void {
+				if(todoList.getItemAt(0)['todo list'] == FREEDOM) {
+					todoList.removeAll();
+				}
+				todoList.addItem({'todo list': todo.text});
+				todo.text = "";
+				todo.setFocus();
+			}
+			
+			public function onLoad() : void {
+				todo.setFocus();
+			}
+
+			public function addTodoWhenReturn(event:KeyboardEvent) : void {
+				if(event.keyCode == 13 && event.charCode == 13) {
+					addTodo();
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:TextInput id="todo" x="100" y="100" width="340" keyDown="addTodoWhenReturn(event)"/>
+	<mx:Button id="add" label="Add" x="450" y="100" click="addTodo()"/>
+	<mx:DataGrid id="list" x="100" y="122" width="400" dataProvider="{todoList}">
+	</mx:DataGrid>
+</mx:Application>
