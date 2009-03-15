@@ -1,0 +1,18 @@
+
+This is a simple project to get Cucumber & FunFX as acceptance test start.
+I spent 8 hours to make it work. Put it here, so that someone doesn't need to
+go through all tricky part I've got.
+
+The 'libs/funfx-0.2.2.swc' is compiled from FunFX source with Flex Builder SDKS 3.2 on Mac 10.5.6,
+you may need to recompile it with your Flex Builder SDKS, or just download it from FunFX rubyforge
+project download file list.
+
+Try out steps:
+  1. I tested it with Flex Builder SDKS 3.2 on Mac currently, for other SDKS version / OS, you should set FB_SDK_PATH env variable to point to Flex SDK path (e.g.: FB_SDK_PATH=PATH_TO_AIR_SDK/sdks/3.2.0).
+  2. cucumber & funfx
+  3. using safariwatir, for I can't find out simple solution for FireWatir to solve Firefox one profile per instance problem on CI build.
+  4. Run 'rake' should get application compiled and run features
+  5. You may get errors at first time running the features, fix it by adding the 'dist/todolist.swf' need be added into trust file list. see 'Problems to fix' below.
+
+Problems to fix (Is there anyone could help out?):
+  1. After compiled application, the 'dist/todolist.swf' need be added into trust file list (http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html#117502).
